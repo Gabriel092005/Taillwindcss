@@ -75,6 +75,20 @@ export default function Home() {
                 <Input.Control id="Bio" defaultValue=""></Input.Control>
                 </Input.Root>
             </div>
+            <div className="grid gap-3 grid-cols-form pt-4">
+              <label htmlFor="Bio" className="text-sm font-medium text-zinc-700">
+                Portfolio
+                <p className="text-sm font-medium text-zinc-500">Portfolio Projects</p>
+                </label>
+                <Input.Root>
+                <Input.Control id="Bio" defaultValue=""></Input.Control>
+                </Input.Root>
+            </div>
+            <div className="flex items-center justify-end pt-5">
+
+            <button type="button" className="rounded-lg px-4 py-2 text-sm font-semibold border border-zinc-300">Cancel</button>
+            <button type="submit"  form="settings" className="rounded-lg px-4 py-2 text-sm font-semibold text-white bg-violet-600">Save</button>
+            </div>
         </form>
       </div>
       
