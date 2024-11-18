@@ -11,11 +11,8 @@ type InputsPrefixProps =  ComponentProps<'div'>
 type InputsControlProps = ComponentProps<'input'>
 
 export  function Control(props:InputsControlProps){
-
       return  <input type="text" className="flex-1 border-0 bg-transparent  placeholder-zinc-600 p-0" 
       {...props} />
-    
-    
 }
 type  InputRootProps = ComponentProps<'div'>
 

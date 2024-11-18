@@ -1,7 +1,11 @@
-
-import { Mail } from "lucide-react";
+'use client'
+import {Bold, ChevronDown, Italic, Link, List, ListOrdered, Mail} from "lucide-react";
 import { SettingsTabs } from "./src/components/SettingsTabs";
-import *as Input from './src/components/sidebar/input'
+import * as Input from './src/components/sidebar/input'
+import * as FileInput from '../app/src/components/form/fileInput'
+import { Select } from "./src/components/form/Select";
+import { SelectItem } from "./src/components/form/Select/SelectItem";
+import { TextArea } from "./src/components/textArea/textArea";
 
 
 
@@ -52,6 +56,13 @@ export default function Home() {
                  Your Photo
                   <p className="text-sm font-medium text-zinc-500">This will be displayed on your Profile</p>
                   </label>
+                  <div>
+                      <FileInput.Root  className="flex items-start gap-5">
+                        <FileInput.ImagePreview/>
+                        <FileInput.Trigger/>
+                        <FileInput.Control/>
+                      </FileInput.Root>
+                  </div>
             </div>
 
             <div className="grid gap-3 grid-cols-form pt-4">
@@ -61,19 +72,57 @@ export default function Home() {
                 </Input.Root>
             </div>
             <div className="grid gap-3 grid-cols-form pt-4">
-              <label htmlFor="country" className="text-sm font-medium text-zinc-700">Country</label>
-                <Input.Root>
-                <Input.Control id="role" defaultValue="Ex:Angola"></Input.Control>
-                </Input.Root>
+              <label htmlFor="country" className="text-sm font-medium text-zinc-700"
+              >
+                Country
+                </label>
+                <Select placeholder="select a country..">
+                  <SelectItem value="br" text="brasil"/>
+                </Select>
             </div>
             <div className="grid gap-3 grid-cols-form pt-4">
               <label htmlFor="Bio" className="text-sm font-medium text-zinc-700">
                 Bio
                 <p className="text-sm font-medium text-zinc-500">Write a short Introduction</p>
                 </label>
-                <Input.Root>
-                <Input.Control id="Bio" defaultValue=""></Input.Control>
-                </Input.Root>
+             
+                <div className="space-y-3">
+                  <div className="grid gap-3  grid-cols-2">
+                 
+                  <Select placeholder="" defaultValue="normal">
+                  <SelectItem value="normal" defaultChecked text="Normal text"/>
+                  </Select>
+                  <div className="flex items-center gap-1">
+                  <button type="button" className="  p-2 hover:bg-zinc-50 rounded-full" >
+                  <Bold className="w-5 h-5 text-zinc-500"strokeWidth={3}/>
+                 </button>
+                  <button type="button" className="  p-2 hover:bg-zinc-50 rounded-full" >
+                  <Italic className="w-5 h-5 text-zinc-500"strokeWidth={3}/>
+                 </button>  
+                 <button type="button" className="  p-2 hover:bg-zinc-50 rounded-full" >
+                  <Link className="w-5 h-5 text-zinc-500"strokeWidth={3}/>
+                 </button>
+                 <button type="button" className="  p-2 hover:bg-zinc-50 rounded-full" >
+                  <List className="w-5 h-5 text-zinc-500"strokeWidth={3}/>
+                 </button>
+                 <button type="button" className="  p-2 hover:bg-zinc-50 rounded-full" >
+                  <ListOrdered className="w-5 h-5 text-zinc-500"strokeWidth={3}/>
+                 </button>
+      
+                  </div>
+                  </div>
+                <TextArea/>
+                </div>
+            </div>
+            <div className="grid gap-3 grid-cols-form pt-4">
+              <label htmlFor="time" className="text-sm font-medium text-zinc-700">
+                Timezone
+                <p className="text-sm font-medium text-zinc-500">Write a short Introduction</p>
+                </label>
+                 <Select placeholder="select a  Timezone..">
+                  <SelectItem value="t" text="pacific Standard Time (UTC-08:00)"/>
+                  <SelectItem value="b" text="pacific Standard Time (UTC-08:00)"/>
+                  </Select>
             </div>
             <div className="grid gap-3 grid-cols-form pt-4">
               <label htmlFor="Bio" className="text-sm font-medium text-zinc-700">
@@ -84,8 +133,12 @@ export default function Home() {
                 <Input.Control id="Bio" defaultValue=""></Input.Control>
                 </Input.Root>
             </div>
-            <div className="flex items-center justify-end pt-5">
-
+            <FileInput.Root  >
+                        <FileInput.Trigger />
+                        <FileInput.FileList/>
+                        <FileInput.Control multiple />
+            </FileInput.Root>
+            <div className="flex items-center justify-end pt-5 gap-3">
             <button type="button" className="rounded-lg px-4 py-2 text-sm font-semibold border border-zinc-300">Cancel</button>
             <button type="submit"  form="settings" className="rounded-lg px-4 py-2 text-sm font-semibold text-white bg-violet-600">Save</button>
             </div>

@@ -7,7 +7,6 @@ import { Profile } from "./profile";
 import * as Input from  './input'
 
 export interface InputProps{
-   
 }
 
 export function SideBar(){
@@ -24,9 +23,6 @@ export function SideBar(){
             </Input.Prefix>
               <Input.Control placeholder="Search"/>
             </Input.Root>
-          
-           
-
         <nav className="space-y-0.5">
          <NavItem title="Home" icon={Home}/>
          <NavItem title="DashBoard" icon={BarChart}/>

@@ -55,6 +55,23 @@ export default {
   				'5': 'hsl(var(--chart-5))'
   			}
   		},
+		animation:{
+			slideUpAndFade:'slideUpAndFade 1s linear',
+			slideDownAndFade:'slideDownAndFade 1s linear'
+
+		},
+		keyframes:{
+           slideDownAndFade	:{
+
+			from:{opacity:'0'},
+			to:{opacity:'1'}
+			
+		   },
+		   slideUpAndFade:{
+			from:{opacity:'1'},
+			to:{opacity:'0'}
+		   }
+		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
