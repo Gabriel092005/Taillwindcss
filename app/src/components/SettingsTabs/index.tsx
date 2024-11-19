@@ -10,9 +10,6 @@ export function SettingsTabs(){
     const [currentTab, SetCurrentTab]=useState('tab1') //bug aqui
     return(
         <>
-      
-
-     
         <Tabs.Root value={currentTab} onValueChange={SetCurrentTab}> 
           <ScrollArea.Root className='w-ful' type='scroll'>
             <ScrollArea.ScrollAreaViewport>

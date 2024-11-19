@@ -1,5 +1,5 @@
 'use client'
-import {Bold, ChevronDown, Italic, Link, List, ListOrdered, Mail} from "lucide-react";
+import {Bold , Italic, Link, List, ListOrdered, Mail} from "lucide-react";
 import { SettingsTabs } from "./src/components/SettingsTabs";
 import * as Input from './src/components/sidebar/input'
 import * as FileInput from '../app/src/components/form/fileInput'
@@ -15,8 +15,8 @@ export default function Home() {
       <h1 className="text-3xl font-medium text-zinc-900 ">Settings</h1>
       <SettingsTabs/>
 
-      <div className="mt-6 flex flex-col ">
-        <div className="flex justify-between  pb-5 border-b border-zinc-200 items-center">
+      <div className="mt-6 flex flex-col lg:absolute ">
+        <div className="flex flex-col lg:items-center lg:flex-row justify-between gap-4  pb-5 lg:border-b border-zinc-200 ">
         <div className="space-y-1">
             <h1 className="text-left font-medium">Personal Info</h1>
             <span>Update your photo and your personal Details Here.</span>
@@ -27,13 +27,20 @@ export default function Home() {
           </div>
         </div>
         <form action="" className="mt-6 flex flex-col gap-5 w-full divide-y divide-zinc-500">
-            <div className="grid gap-3 grid-cols-form">
-              <label htmlFor="firstName" className="text-sm font-medium text-zinc-700">Name</label>
-              <div className=" grid gap-6 grid-cols-2">
+            <div className=" flex flex-col lg:grid gap-3 lg:grid-cols-form">
+            <label htmlFor="firstName" className="text-sm font-medium text-zinc-700">
+                Name
+            </label>
+              <div className="flex flex-col lg:grid gap-6 lg:grid-cols-2">
+             
 
                 <Input.Root>
                 <Input.Control id="firstName" defaultValue="Diego"></Input.Control>
                 </Input.Root>
+
+                <label htmlFor="firstName" className="text-sm font-medium lg:hidden text-zinc-700">
+                Last Name
+                </label>
 
                 <Input.Root>
                 <Input.Control  defaultValue="Fernades"></Input.Control>
@@ -41,7 +48,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid gap-3 grid-cols-form pt-4">
+            <div className=" flex flex-col lg:grid gap-3 lg:grid-cols-form">
               <label htmlFor="email" className="text-sm font-medium text-zinc-700">Email Address</label>
                 <Input.Root>
                 <Input.Prefix>
@@ -51,27 +58,26 @@ export default function Home() {
                 </Input.Root>
             </div>
 
-            <div className="grid gap-3 grid-cols-form pt-4">
+            <div className="lg:grid gap-3 lg:grid-cols-form pt-5">
               <label htmlFor="photo" className="text-sm font-medium text-zinc-700">
                  Your Photo
-                  <p className="text-sm font-medium text-zinc-500">This will be displayed on your Profile</p>
+                  <span className="text-sm mt-0.5 block font-medium text-zinc-500  lg:flex-nowrap">This will be displayed on your Profile</span>
                   </label>
-                  <div>
-                      <FileInput.Root  className="flex items-start gap-5">
+                  
+                  <FileInput.Root className="flex flex-col lg:items-start gap-5 lg:flex-row">
                         <FileInput.ImagePreview/>
                         <FileInput.Trigger/>
                         <FileInput.Control/>
                       </FileInput.Root>
-                  </div>
             </div>
 
-            <div className="grid gap-3 grid-cols-form pt-4">
+            <div className="lg:grid gap-3 lg:grid-cols-form pt-5">
               <label htmlFor="role" className="text-sm font-medium text-zinc-700">Role</label>
                 <Input.Root>
                 <Input.Control id="role" defaultValue="Ex:CTO"></Input.Control>
                 </Input.Root>
             </div>
-            <div className="grid gap-3 grid-cols-form pt-4">
+            <div className="lg:grid gap-3 lg:grid-cols-form pt-5">
               <label htmlFor="country" className="text-sm font-medium text-zinc-700"
               >
                 Country
@@ -80,7 +86,7 @@ export default function Home() {
                   <SelectItem value="br" text="brasil"/>
                 </Select>
             </div>
-            <div className="grid gap-3 grid-cols-form pt-4">
+            <div className="lg:grid gap-3 lg:grid-cols-form pt-5">
               <label htmlFor="Bio" className="text-sm font-medium text-zinc-700">
                 Bio
                 <p className="text-sm font-medium text-zinc-500">Write a short Introduction</p>
@@ -114,7 +120,7 @@ export default function Home() {
                 <TextArea/>
                 </div>
             </div>
-            <div className="grid gap-3 grid-cols-form pt-4">
+            <div className="lg:grid gap-3 lg:grid-cols-form pt-5">
               <label htmlFor="time" className="text-sm font-medium text-zinc-700">
                 Timezone
                 <p className="text-sm font-medium text-zinc-500">Write a short Introduction</p>
@@ -124,7 +130,7 @@ export default function Home() {
                   <SelectItem value="b" text="pacific Standard Time (UTC-08:00)"/>
                   </Select>
             </div>
-            <div className="grid gap-3 grid-cols-form pt-4">
+            <div className="lg:grid gap-3 lg:grid-cols-form pt-4">
               <label htmlFor="Bio" className="text-sm font-medium text-zinc-700">
                 Portfolio
                 <p className="text-sm font-medium text-zinc-500">Portfolio Projects</p>

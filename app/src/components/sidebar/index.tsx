@@ -7,8 +7,11 @@ import { SvgComponent } from "./logo";
 import { UsedSpaceWidGet } from "./usedSpaceWidget";
 import { Profile } from "./profile";
 import * as Input from  './input'
+import * as ScrollArea from '@radix-ui/react-scroll-area'
+
 import * as Collapsible from '@radix-ui/react-collapsible'
 import { Button } from "@/components/ui/button";
+
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export interface InputProps{
@@ -22,7 +25,7 @@ export function SideBar(){
          
           <Collapsible.Root
         
-           className="border-b  data-[state=open]:h-screen border-zinc-200  flex data-[state=open]:bottom-0 lg:data-[state=closed]:buttom-0 flex-col gap-4 fixed left-0 top-0 right-0 z-10 bg-white lg:auto lg:w-80 lg:border-r lg:px-5 lg:py-8  lg:auto ">
+           className="border-b dark:bg-black  data-[state=open]:h-screen border-zinc-200  flex data-[state=open]:bottom-0 lg:data-[state=closed]:buttom-0 flex-col gap-4 fixed left-0 top-0 right-0 z-10 bg-white lg:auto lg:w-80 lg:border-r lg:px-5 lg:py-8  lg:auto ">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
               <SvgComponent/>
@@ -45,7 +48,11 @@ export function SideBar(){
         </Input.Prefix>
           <Input.Control placeholder="Search"/>
         </Input.Root>
-    <nav className="space-y-0.5">
+     
+
+
+  
+<nav className="space-y-0.5">
      <NavItem title="Home" icon={Home}/>
      <NavItem title="DashBoard" icon={BarChart}/>
      <NavItem title="Projects" icon={SquareStack}/>
@@ -63,8 +70,13 @@ export function SideBar(){
         <div className="h-px bg-zinc-200">
          <Profile/>
         </div>
+  
+
+    
         </Collapsible.Content>
           </Collapsible.Root>
+       
+
       
     )
 }
