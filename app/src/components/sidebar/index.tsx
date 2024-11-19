@@ -1,47 +1,65 @@
-import { BarChart, CheckSquare, Cog, Flag, Home, LifeBuoy, Search, SquareStack, User } from "lucide-react";
+'use client'
+
+import { BarChart, CheckSquare, Cog, Flag, Home, LifeBuoy, Menu, Search, SquareStack, User } from "lucide-react";
 
 import { NavItem } from "./main-navigation/NavIntem";
 import { SvgComponent } from "./logo";
 import { UsedSpaceWidGet } from "./usedSpaceWidget";
 import { Profile } from "./profile";
 import * as Input from  './input'
+import * as Collapsible from '@radix-ui/react-collapsible'
+import { Button } from "@/components/ui/button";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export interface InputProps{
 }
 
 export function SideBar(){
+  const [parent] = useAutoAnimate()
+
     return(
+    
          
-          <aside className="border-r border-zinc-200 px-5 py-8 flex flex-col gap-4">
-            <div className="flex items-center">
+          <Collapsible.Root className="border-b h-screen border-zinc-200  flex bottom-0 flex-col gap-4 fixed left-0 top-0 right-0 z-10 bg-white lg:auto lg:w-80 lg:border-r lg:px-5 lg:py-8  lg:auto ">
+            <div className="flex items-center justify-between">
             <SvgComponent/>
-            <strong>Untitled UI</strong>
+            {/* <strong>Untitled UI</strong> */}
+            <Collapsible.Trigger asChild className="lg:hidden">
+               <Button variant={"ghost"}>
+                <Menu className="h-4 w-4"/>
+               </Button>
+
+            </Collapsible.Trigger>
             </div>
-            <Input.Root>
-            <Input.Prefix>
-                  <Search className="h-5 w-5 text-zinc-500"/>
-            </Input.Prefix>
-              <Input.Control placeholder="Search"/>
-            </Input.Root>
-        <nav className="space-y-0.5">
-         <NavItem title="Home" icon={Home}/>
-         <NavItem title="DashBoard" icon={BarChart}/>
-         <NavItem title="Projects" icon={SquareStack}/>
-         <NavItem title="Tasks" icon={CheckSquare}/>
-         <NavItem title="Reporting" icon={Flag}/>
-         <NavItem title="Users" icon={User}/>
-        </nav>
+          
+         <Collapsible.Content ref={parent} >
+
+        <Input.Root>
+        <Input.Prefix>
+              <Search className="h-5 w-5 text-zinc-500"/>
+        </Input.Prefix>
+          <Input.Control placeholder="Search"/>
+        </Input.Root>
+    <nav className="space-y-0.5">
+     <NavItem title="Home" icon={Home}/>
+     <NavItem title="DashBoard" icon={BarChart}/>
+     <NavItem title="Projects" icon={SquareStack}/>
+     <NavItem title="Tasks" icon={CheckSquare}/>
+     <NavItem title="Reporting" icon={Flag}/>
+     <NavItem title="Users" icon={User}/>
+    </nav>
+ 
      
-         
-            <div className="mt-auto flex flex-col gap-3">
-                 <NavItem title="support" icon={LifeBuoy}></NavItem>
-                 <NavItem title="Settings" icon={Cog}></NavItem>
-            </div>   
-            <UsedSpaceWidGet/>
-            <div className="h-px bg-zinc-200">
-             <Profile/>
-            </div>
-          </aside>
+        <div className="mt-auto flex flex-col gap-3">
+             <NavItem title="support" icon={LifeBuoy}></NavItem>
+             <NavItem title="Settings" icon={Cog}></NavItem>
+        </div>   
+        <UsedSpaceWidGet/>
+        <div className="h-px bg-zinc-200">
+         <Profile/>
+        </div>
+        </Collapsible.Content>
+          </Collapsible.Root>
       
     )
 }
