@@ -20,10 +20,15 @@ export function SideBar(){
     return(
     
          
-          <Collapsible.Root className="border-b h-screen border-zinc-200  flex bottom-0 flex-col gap-4 fixed left-0 top-0 right-0 z-10 bg-white lg:auto lg:w-80 lg:border-r lg:px-5 lg:py-8  lg:auto ">
+          <Collapsible.Root
+        
+           className="border-b  data-[state=open]:h-screen border-zinc-200  flex data-[state=open]:bottom-0 lg:data-[state=closed]:buttom-0 flex-col gap-4 fixed left-0 top-0 right-0 z-10 bg-white lg:auto lg:w-80 lg:border-r lg:px-5 lg:py-8  lg:auto ">
             <div className="flex items-center justify-between">
-            <SvgComponent/>
-            {/* <strong>Untitled UI</strong> */}
+              <div className="flex items-center gap-2">
+              <SvgComponent/>
+              <strong>Untitled UI</strong>
+              </div>
+        
             <Collapsible.Trigger asChild className="lg:hidden">
                <Button variant={"ghost"}>
                 <Menu className="h-4 w-4"/>
@@ -32,7 +37,7 @@ export function SideBar(){
             </Collapsible.Trigger>
             </div>
           
-         <Collapsible.Content ref={parent} >
+         <Collapsible.Content forceMount ref={parent} className="flex flex-1 flex-col gap-6 data-[state=closed]:hidden lg:data-[state=closed]:flex" >
 
         <Input.Root>
         <Input.Prefix>
